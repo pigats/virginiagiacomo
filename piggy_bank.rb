@@ -7,7 +7,7 @@ class PiggyBank
   end
 
   def deposit(from, amount)
-    @db.insert({from: from, amount: amount}) unless amount < 0
+    @db.insert({from: from, amount: amount}) unless amount <= 0
   end
 
   def balance
@@ -15,6 +15,10 @@ class PiggyBank
     reduce = "function(key, values) { return Array.sum(values) }"
     options = {query: {}, out: {:inline => true}, raw: true }           
     @db.map_reduce(map, reduce, options)['results'].first['value']
+  end
+
+  def find_deposit(id)
+    @db.find_one({'_id' => id})
   end
 
 end
