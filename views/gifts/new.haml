@@ -1,0 +1,17 @@
+!!! 5
+%html
+  %head
+    %title
+
+  %body
+    %form{action: url('/gifts'), method: 'post'}
+      %label{for: 'name'} Name
+      %input#name{name: 'name'}
+      %br/
+      %label{for: 'email'} Email
+      %input#email{name: 'email'}
+      %br/
+      %label{for: 'amount'} Amount
+      %input#amount{name: 'amount'}
+      %br/
+      %input{type: 'submit'}
