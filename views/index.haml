@@ -6,4 +6,10 @@
   %body
     %h1 Honeymoon!
 
+
+    %ul
+      - @goals_with_status.each do |goal|
+        %li
+          = goal[:goal]['name']
+          = "(#{goal[:completed_fraction]})"
     
