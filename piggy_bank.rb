@@ -14,7 +14,8 @@ class PiggyBank
     map = "function() { emit(1, this.amount); }"
     reduce = "function(key, values) { return Array.sum(values) }"
     options = {query: {}, out: {:inline => true}, raw: true }           
-    @db.map_reduce(map, reduce, options)['results'].first['value']
+    balance = @db.map_reduce(map, reduce, options)['results'].first
+    balance = balance.nil? ? 0 : balance['value']
   end
 
   def find_deposit(id)
