@@ -13,8 +13,16 @@ class VirginiaGiacomo < Sinatra::Base
 
   register Sinatra::AssetPipeline
 
+  configure :development do
+    set :db, Mongo::Connection.new().db('virginiagiacomo')
+  end
+
+  configure :production do 
+    set :db, Mongo::Connection.from_uri(ENV['MONGOLAB_URI']).db(URI.parse(ENV['MONGOLAB_URI']).path.gsub(/^\//, '')) 
+  end
+
   configure do
-    db = 'virginiagiacomo'
+    db = settings.db
     set :goal, Goal.new(db)
     set :piggy_bank, PiggyBank.new(db)
   end

@@ -3,7 +3,7 @@ require 'mongo'
 class PiggyBank
 
   def initialize(db)
-    @db = Mongo::Connection.new().db(db).collection('piggy-bank')
+    @db = db.collection('piggy-bank')
   end
 
   def deposit(from, amount)

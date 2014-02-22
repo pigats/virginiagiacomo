@@ -3,7 +3,7 @@ require 'mongo'
 class Goal
 
   def initialize(db)
-    @db = Mongo::Connection.new().db(db).collection('goals')
+    @db = db.collection('goals')
   end
 
   def all()
