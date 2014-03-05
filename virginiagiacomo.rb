@@ -33,19 +33,20 @@ class VirginiaGiacomo < Sinatra::Base
     balance = settings.piggy_bank.balance
     goals = settings.goal.all
 
-    @goals_with_status = []
+    @completed_goals = []
+    @next_goals = []
 
     goals.each do |goal|
     
-      completed_fraction = case 
-        when balance >= goal['value'] then 1
-        when balance >= 0 then balance/goal['value'].to_f
-        else  0
+      case 
+        when balance >= goal['value'] then @completed_goals.push goal
+        when balance >= 0 then 
+          completed_fraction = balance/goal['value'].to_f
+          @current_goal = goal.merge({ completed_fraction: completed_fraction })
+        else  @next_goals.push goal
       end
 
       balance = balance - goal['value']
-
-      @goals_with_status.push({ goal: goal, completed_fraction: completed_fraction })
       
     end
 
