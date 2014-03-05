@@ -1,0 +1,45 @@
+@import compass
+$colours: #FB8D78, #FA8A9A, #E691BB, #C19FD3, #8FADDB, #58B7D1, #33BDB8, #48BF94, #72BC6E, #9DB54F, #C5A941, #E89A4C, #FF8B68
+
+
+.goals
+  list-style-type: none
+  padding-left: 0
+
+.goal 
+  display: block
+  margin-bottom: 18px
+  padding: 18px 2em
+  +box-sizing(border-box)
+  +clearfix
+  color: whiteSmoke
+
+.goal:first-of-type
+  margin-top: 108px
+    
+.goal:last-of-type
+  margin-bottom: 100%
+
+.goal-title
+  color: #fff
+
+.goal-icon
+  float: right
+  max-width: 100%
+  margin-left: 2em
+
+.goal-bar
+  background: #eee
+  margin: 36px 0
+
+.goal-bar-value
+  background: #ccc
+  height: 36px
+
+@for $i from 1 through length($colours)
+
+  .goal:nth-of-type(#{$i})
+    background: nth($colours, $i)
+
+  .goal:nth-of-type(#{$i})
+    +text-shadow(1px -1px 0 darken(nth($colours, $i), 10%))
