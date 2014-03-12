@@ -1,34 +1,22 @@
-!!! 5
-%html
-  %head
-    %title Honeymoon
-    %link{rel: 'stylesheet', href: stylesheet_path('app')}
+= haml :_head
 
-  %body
-    %section.column.main
-      %header.main-title
-        %h1 Honeymoon!
-        %h3 Giacomo + Virginia
-      %p
-        %a{href: url('gifts/new')} New Gift
+%body.full-width
+  %header.hero
 
+
+  %section.container
+
+    %section.column
+      %p ciao
 
     %section.column.column-double
-      %ul.goals
-        - @completed_goals.each do |goal|
-          %li.goal
-            %h2.goal-title= goal['name']
-            
+      %header
+        %h1.main-header 
+          Giacomo + Virginia
 
-        %li.goal
-          %h2.goal-title= @current_goal['name']
-          %img.goal-icon{src: image_path('goals/' + @current_goal['image']), alt: @current_goal['name']}
-          %article
-            %p.goal-description= @current_goal['description']
+      
+      %article
+        %p= t('test')
 
-            .goal-bar
-              .goal-bar-value{style: 'width: ' + (100*@current_goal[:completed_fraction]).to_s + '%;'}
 
-        - @next_goals.each do |goal|
-          %li.goal
-            %h2.goal-title= goal['name']
+= haml :_foot

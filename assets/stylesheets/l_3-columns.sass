@@ -1,15 +1,25 @@
 @import compass
 @import susy
 
-body 
+body:not(.full-width) 
+  +container
+
+.container
   +container
 
 .column 
   +span-columns(4)
+  +box-sizing(border-box)
 
-  &:last-of-type
+  &:last-of-type:not(:first-of-type)
     +omega
 
 .column-double 
   +span-columns(8)
 
+
+.column.column-center
+  +pre(4)
+
+.column-double.column-center 
+  +pre(2)

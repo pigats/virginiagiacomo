@@ -1,0 +1,34 @@
+= haml :_head
+
+%body
+  %section.column
+    .goals-desc
+      %header.goals-desc-title
+        %h1 Honeymoon!
+        %h3 Giacomo + Virginia
+      %p
+        %a{href: url('honeymoon/gifts/new')} New Gift
+
+
+  %section.column.column-double
+    %ul.goals
+      - @completed_goals.each do |goal|
+        %li.goal
+          %h2.goal-title= goal['name'][@locale]
+          
+      - if @current_goal
+        %li.goal
+          %h2.goal-title= @current_goal['name'][@locale]
+          %img.goal-icon{src: image_path('goals/' + @current_goal['image']), alt: @current_goal['name'][@locale]}
+          %article
+            %p.goal-description= @current_goal['description'][@locale]
+
+            .goal-bar
+              .goal-bar-value{style: 'width: ' + (100*@current_goal[:completed_fraction]).to_s + '%;'}
+
+      - @next_goals.each do |goal|
+        %li.goal
+          %h2.goal-title= goal['name'][@locale]
+
+
+= haml :_foot

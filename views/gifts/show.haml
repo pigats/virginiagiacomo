@@ -1,11 +1,18 @@
-!!! 5
-%html
-  %head
-    %title
+= haml :_head
 
-  %body
-    = @gift['from']['name']
-    = @gift['amount']
+%body
+  
+  %section
+    %header
+      %h1 Thanks
 
-    %p
-      %a{href: url('/')} Goals list
+      %article
+        for your  
+        %h3= @gift['amount']['value_original'] + @gift['amount']['currency'].to_currency_symbol
+        contribution to our hawaiian dream!
+
+
+  %p
+    %a{href: url('/honeymoon')} Goals list
+
+= haml :_foot

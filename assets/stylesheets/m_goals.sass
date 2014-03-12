@@ -6,6 +6,13 @@ $colours: #FB8D78, #FA8A9A, #E691BB, #C19FD3, #8FADDB, #58B7D1, #33BDB8, #48BF94
   list-style-type: none
   padding-left: 0
 
+.goals-desc
+  position: fixed
+  padding-right: 10px
+
+.goals-desc-title
+  +text-shadow(1px 1px 0 #fff)
+
 .goal 
   display: block
   margin-bottom: 18px
@@ -38,8 +45,10 @@ $colours: #FB8D78, #FA8A9A, #E691BB, #C19FD3, #8FADDB, #58B7D1, #33BDB8, #48BF94
 
 @for $i from 1 through length($colours)
 
-  .goal:nth-of-type(#{$i})
-    background: nth($colours, $i)
+  $colour: nth($colours, $i)
 
   .goal:nth-of-type(#{$i})
-    +text-shadow(1px -1px 0 darken(nth($colours, $i), 10%))
+    background: $colour
+
+  .goal:nth-of-type(#{$i})
+    +text-shadow(1px -1px 0 darken($colour, 10%))

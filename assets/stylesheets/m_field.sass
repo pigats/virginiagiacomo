@@ -1,0 +1,56 @@
+@import compass
+
+.field
+  margin-bottom: 9px
+
+.field-with-icon
+
+  input
+    background-position: 10px center
+    background-repeat: no-repeat
+    padding-left: 45px
+
+  #name
+    background-image: image_url('name.png')
+
+  #email
+    background-image: image_url('email.png')
+
+
+.field-amount 
+  float: right
+  width: 10em
+  +box-sizing(border-box)
+
+  background-color: white
+  border: 1px solid #ddd
+  +border-radius(4px)
+
+  &:after
+    content: '.00'
+
+.field-amount-currency
+  width: 2.5em
+  +appearance(none)
+  border: none
+  margin-left: 2px  
+  background: whiteSmoke image_url('caret.png') 1.8em center no-repeat 
+
+
+.field-amount-value
+  width: 5em !important
+
+  text-align: right
+  border: none !important
+
+
+.field-submit
+  float: right
+  width: 10em
+
+  margin-top: 36px
+  margin-left: 8em
+
+  text-align: center
+
+
