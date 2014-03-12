@@ -7,11 +7,11 @@ class PiggyBank
   end
 
   def deposit(from, amount)
-    @db.insert({from: from, amount: amount}) unless amount <= 0
+    @db.insert({from: from, amount: amount}) unless amount[:value_in_pounds] <= 0
   end
 
   def balance
-    map = "function() { emit(1, this.amount); }"
+    map = "function() { emit(1, this.amount.value_in_pounds); }"
     reduce = "function(key, values) { return Array.sum(values) }"
     options = {query: {}, out: {:inline => true}, raw: true }           
     balance = @db.map_reduce(map, reduce, options)['results'].first

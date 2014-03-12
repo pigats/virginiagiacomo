@@ -5,9 +5,12 @@ require 'coffee-script'
 require 'sinatra'
 require 'sinatra/asset_pipeline'
 require 'bson'
+require 'yaml'
 
 require './goals'
+require './amount'
 require './piggy_bank'
+require './currency_symbol'
 
 class VirginiaGiacomo < Sinatra::Base
 
@@ -25,10 +28,25 @@ class VirginiaGiacomo < Sinatra::Base
     db = settings.db
     set :goal, Goal.new(db)
     set :piggy_bank, PiggyBank.new(db)
+    set :it, YAML.load_file('./locales/it.yml')
+    set :en, YAML.load_file('./locales/en.yml')
   end
 
+  helpers do
+    def t(key)
+      return settings.send(@locale)[key]
+    end 
+  end
+
+  before do
+    @locale = request.env['HTTP_ACCEPT_LANGUAGE'].include?('it-IT') ? 'it' : 'en'
+  end
 
   get '/' do
+    haml :index
+  end
+
+  get '/honeymoon' do
     
     balance = settings.piggy_bank.balance
     goals = settings.goal.all
@@ -52,23 +70,28 @@ class VirginiaGiacomo < Sinatra::Base
 
     @goals_with_status.to_json
 
-    haml :index
+    haml :goals
   end
 
 
   # empty form
-  get '/gifts/new' do 
+  get '/honeymoon/gifts/new' do 
     haml :'gifts/new'
   end
 
   # create gift
-  post '/gifts' do
-    id = settings.piggy_bank.deposit({name: params[:name], email: params[:email]}, params[:amount].to_i)
-    redirect '/gifts/' + id.to_s
+  post '/honeymoon/gifts' do
+    value = params[:amount]
+    currency = params[:currency]
+
+    amount = { value_original: value, currency: currency, value_in_pounds: Amount.new(value, currency).to_pound }
+    
+    id = settings.piggy_bank.deposit({name: params[:name], email: params[:email]}, amount)
+    redirect '/honeymoon/gifts/' + id.to_s
   end
 
   # show gift
-  get '/gifts/:id' do 
+  get '/honeymoon/gifts/:id' do 
     @gift = settings.piggy_bank.find_deposit(BSON::ObjectId(params[:id]))
     haml :'gifts/show'
   end
