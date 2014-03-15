@@ -1,3 +1,11 @@
+@import compass
+@import susy
+
 .hero
   height: 500px
-  background: black
+  +background(linear-gradient(top left, #333, #003))
+
+.hero-container
+  +container 
+  height: 525px
+  background: image_url('lovely_couple.png') left bottom no-repeat

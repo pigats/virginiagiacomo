@@ -2,13 +2,16 @@
 
 %body
   
-  %section
+  %section.column.column-center 
     %header
       %h1 Thanks
 
       %article
         for your  
-        %h3= @gift['amount']['value_original'] + @gift['amount']['currency'].to_currency_symbol
+        %h3 
+          #{@gift['amount']['value_original']},
+          %span.small> 00 
+          #{' ' + @gift['amount']['currency'].to_currency_symbol}
         contribution to our hawaiian dream!
 
 
