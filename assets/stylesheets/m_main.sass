@@ -19,12 +19,10 @@
   margin: 72px 0 36px
   padding: 18px 0 0
 
-
-  background: #58b7d1 
-  +background(image_url('hawaiian_flower.png'), linear-gradient(top left, #33bdb8, #58b7d1))
-  background:
-    repeat: no-repeat 
-    position: 20% center
+  +background(linear-gradient(top left, #33bdb8, #58b7d1))
+  
+.main-honeymoon-card-container
+  background: transparent image_url('hawaiian_flower.png') 15% center no-repeat 
 
   color: white
   //+text-shadow(1px -1px 0 darken(#33bdb8, 10%))
