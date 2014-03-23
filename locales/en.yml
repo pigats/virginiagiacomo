@@ -43,6 +43,7 @@ contribution_amount_label: amount
 contribution_submit: save
 contribution_info: |
   Clicking &ldquo;save&rdquo; you're expressing intent, no payment is run through the website. 
+  <br />
   The amount of your contribution will be kept reserved. 
   <br />
   Thanks a lot!
