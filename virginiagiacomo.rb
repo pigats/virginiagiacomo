@@ -28,6 +28,7 @@ class VirginiaGiacomo < Sinatra::Base
     db = settings.db
     set :goal, Goal.new(db)
     set :piggy_bank, PiggyBank.new(db)
+    set :session_secret, ENV['SESSION_SECRET']
     set :it, YAML.load_file('./locales/it.yml')
     set :en, YAML.load_file('./locales/en.yml')
   end
@@ -81,12 +82,12 @@ class VirginiaGiacomo < Sinatra::Base
 
   # empty form
   get '/honeymoon/contributions/new' do 
-    @error = session[:create_gift_error] unless session[:create_gift_error].nil?
+    @error = session[:gift_error] unless session[:gift_error].nil?
     haml :'contributions/new'
   end
 
   after '/honeymoon/contributions/new' do 
-    session[:create_gift_error] = nil
+    session[:gift_error] = nil
   end
 
   # create gift
@@ -94,7 +95,7 @@ class VirginiaGiacomo < Sinatra::Base
     save = settings.piggy_bank.deposit(params)
     
     if save.equal?(false)
-      session[:create_gift_error] = 'error_saving_contribution'
+      session[:gift_error] = 'error_saving_contribution'
       redirect '/honeymoon/contributions/new'
     else
       redirect '/honeymoon/contributions/' + save.to_s
