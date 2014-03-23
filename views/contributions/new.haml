@@ -1,0 +1,40 @@
+= haml :_head
+
+%body
+  %section.column.column-center.alone
+    %form{action: url('/honeymoon/contributions'), method: 'post'}
+      
+      %header
+        %h1= t('new_contribution_title')
+
+      - if @error
+        %p.field-error= t(@error)
+
+
+      .field.field-with-icon
+        %label{for: 'name'}= t('contribution_from_label')
+        %input#name{name: 'name', type: 'text', placeholder: t('contribution_from_label')}
+      
+      .field.field-with-icon
+        %label{for: 'email'}= t('contribution_email_label')
+        %input#email{name: 'email', type: 'text', placeholder: t('contribution_email_label')}
+      
+      .field.field-amount
+        %label{for: 'amount'}= t('contribution_amount_label')
+        %select.field-amount-currency{name: 'currency'}
+          %option{value: 'euro'} &euro;
+          %option{value: 'pound'} &pound;   
+          %option{value: 'dollar'} &dollar;   
+        %input#amount.field-amount-value{name: 'amount', type: 'text', placeholder: '123'}
+      
+      .field.field-submit
+        %input.btn{type: 'submit', value: t('contribution_submit')}
+
+    %p.small= t('contribution_info')
+
+    %footer
+      %a{href: url('/honeymoon')}= t('honeymoon_link')
+      %br/
+      %a{href: url('/')}= t('index_link')
+
+= haml :_foot

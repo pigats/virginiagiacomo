@@ -25,3 +25,26 @@ body:not(.full-width)
 .column-double.column-center 
   +pre(2)
   +post(2)
+
+
+.column-right
+  +omega
+
+.alone
+  margin-top: 36px
+
+
+$footer_text_color: lighten(#555, 40%)
+
+.footer
+  +span-columns(12)
+  margin: 90px 0 18px
+
+  font-size: .707em
+  text-align: center
+  color: $footer_text_color
+
+  a 
+    color: $footer_text_color
+    border-bottom-color: $footer_text_color
+  

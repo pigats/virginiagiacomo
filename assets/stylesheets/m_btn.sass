@@ -1,0 +1,26 @@
+@import compass
+@import susy
+
+$background: #fa8a9a
+
+.btn 
+  +box-sizing(border-box)
+  padding: 9px 10px
+  text-align: center
+  min-width: 10em
+
+  color: white !important
+  +text-shadow(none)
+  border-color: white !important
+  display: inline-block
+  +border-radius(2px)
+  background: $background
+  text-decoration: none
+
+
+  &:active
+    +box-shadow(0 4px 4px darken($background, 2%) inset)
+
+
+  &:hover
+    background: lighten($background, 2%)

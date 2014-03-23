@@ -1,0 +1,24 @@
+= haml :_head
+
+%body
+  
+  %section.column.column-center.alone
+    %header
+      %h1= t('thanks')
+
+      %article 
+        %p= t('thanks_for')
+
+        %h3 
+          #{@gift['amount']['value']},
+          %span.small> 00 
+          #{' ' + @gift['amount']['currency'].to_currency_symbol}
+
+        %p.small= t('thanks_info')
+
+    %footer
+      %a{href: url('/honeymoon')}= t('honeymoon_link')
+      %br/
+      %a{href: url('/')}= t('index_link')
+
+= haml :_foot

@@ -4,10 +4,12 @@
   %section.column
     .goals-desc
       %header.goals-desc-title
-        %h1 Honeymoon!
-        %h3 Giacomo + Virginia
+        %h1= t('honeymoon_title')
+        %h3= t('event_title')
       %p
-        %a{href: url('honeymoon/gifts/new')} New Gift
+        %a.btn{href: url('honeymoon/contributions/new')}= t('new_contribution_title')
+      %p
+        %a{href: url('/')}= t('index_link')
 
 
   %section.column.column-double

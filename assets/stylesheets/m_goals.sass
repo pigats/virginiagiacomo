@@ -1,5 +1,5 @@
 @import compass
-$colours: #FB8D78, #FA8A9A, #E691BB, #C19FD3, #8FADDB, #58B7D1, #33BDB8, #48BF94, #72BC6E, #9DB54F, #C5A941, #E89A4C, #FF8B68
+$colours: #fb8d78, #fa8a9a, #e691bb, #c19fd3, #8faddb, #58b7d1, #33bdb8, #48bf94, #72bc6e, #9db54f, #c5a941, #e89a4c, #ff8b68
 
 
 .goals
@@ -8,10 +8,12 @@ $colours: #FB8D78, #FA8A9A, #E691BB, #C19FD3, #8FADDB, #58B7D1, #33BDB8, #48BF94
 
 .goals-desc
   position: fixed
-  padding-right: 10px
+  padding-top: 36px
 
 .goals-desc-title
   +text-shadow(1px 1px 0 #fff)
+  padding: 0 10px           // fix rendering issues with curly font
+  margin-left: -10px
 
 .goal 
   display: block
@@ -25,7 +27,7 @@ $colours: #FB8D78, #FA8A9A, #E691BB, #C19FD3, #8FADDB, #58B7D1, #33BDB8, #48BF94
   margin-top: 108px
     
 .goal:last-of-type
-  margin-bottom: 100%
+  margin-bottom: calc(100% - 108px)
 
 .goal-title
   color: #fff
@@ -49,6 +51,4 @@ $colours: #FB8D78, #FA8A9A, #E691BB, #C19FD3, #8FADDB, #58B7D1, #33BDB8, #48BF94
 
   .goal:nth-of-type(#{$i})
     background: $colour
-
-  .goal:nth-of-type(#{$i})
-    +text-shadow(1px -1px 0 darken($colour, 10%))
+    //+text-shadow(1px -1px 0 darken($colour, 10%))

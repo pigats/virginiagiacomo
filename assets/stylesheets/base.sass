@@ -10,6 +10,11 @@ body
   background: whiteSmoke
   margin: 0
 
+a, a:hover, a:visited
+  color: #555
+  text-decoration: none
+  border-bottom: 1px solid #555
+
 h1, h2, h3
   margin: 0 0 18px
   font-family: 'Dancing Script', cursive
@@ -26,17 +31,24 @@ h3
   font-size: 1.999em
   line-height: 1.251em
 
-.small
+small, .small
   font-size: .707em
 
 p 
-  margin: 0
+  margin: 0 0 18px
+
+b 
+  font-weight: 400
 
 ul 
   margin: 0
 
 label 
   display: none
+
+form
+  +clearfix
+  margin-bottom: 18px
 
 input[type=text], input[type=submit], select
   font:
@@ -50,3 +62,9 @@ input[type=text], input[type=submit], select
   +box-sizing(border-box)
   border: 1px solid #ddd
   +border-radius(4px)  
+
+  &:focus
+    outline: none
+
+footer
+  margin-top: 36px

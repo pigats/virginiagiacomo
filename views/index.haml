@@ -1,24 +1,35 @@
 = haml :_head
 
 %body.full-width
-  %header.hero
-    .hero-container
-      
+  %header.row.main-hero
+    .row-container
+      %img.main-hero-image{src: image_path('lovely_couple.png'), alt: 'Giacomo and Virginia as Han Solo and Princess Leia'}
 
 
   %section.container
 
     %section.column
-      %p ciao
 
     %section.column.column-double
       %header
         %h1.main-header 
-          Giacomo + Virginia
+          = t('event_title')
 
       
       %article
-        %p= t('test')
+        = t('event_intro')
+
+
+  %section.row.main-honeymoon-card  
+    .row-container
+            
+      .column.column-double.column-right     
+        = t('honeymoon_intro')  
+      
+        %p.main-honeymoon-card-link
+          %a.btn{href: url('honeymoon')}= t('honeymoon_frontpage_link')
+
+        %small= t('honeymoon_notes')  
 
 
 = haml :_foot
