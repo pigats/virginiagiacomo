@@ -1,1 +1,65 @@
-test:   'ciao belli! aaawyeeeeahhh! this is not php'
+event_title: Giacomo + Virginia
+event_intro: |
+  <p>
+    Il prossimo Giugno ci sposeremo, e per rendere questa giornata davvero memorabile non potremmo desiderare 
+    una compagnia migliore della vostra.
+  </p>
+  <p>
+    La cerimonia si terrà <b>Sabato 21 Giugno alle 15</b>. A seguire, avremo il piacere di accogliere i nostri ospiti per 
+    la cena e i festeggiamenti.
+  </p>
+  <p>
+    Nelle prossime settimane pubblicheremo qui alcune informazioni che pensiamo possano esservi utili, quindi tenete d'occhio questa
+    pagina.
+  </p>
+
+honeymoon_intro: |
+  <h2>Un sogno hawaiiano</h2>
+  <p>
+    Come sapete viviamo a Londra, e la tradizionale lista nozze non sarebbe stata pratica.
+  </p>
+  <p>
+    Per questo abbiamo pensato di chiedervi aiuto per la vacanza più bella della nostra vita: la luna di miele &ndash;
+    subito dopo il matrimonio voleremo infatti verso due settimane di cocente sole delle Hawaii.
+  </p>
+  <p>
+    Se volete, potete aiutarci a raggiungere tutti i nostri obiettivi: biglietti aerei, hotel, 
+    <a href="http://it.wikipedia.org/wiki/Lei_(Hawaii)" target="_blank" title="nā lei su wikipedia">nā lei</a>
+    &hellip; 
+    <br />
+    Abbiamo creato una pagina dedicata, dove potete anche vedere a che punto siamo: 
+  </p>
+
+honeymoon_frontpage_link: Aiutaci a volare alle Hawaii &rightarrow;
+honeymoon_notes: Nessun pagamento sarà effettuato attraverso il sito, se deciderete di contribuire riceverete informazioni su come procedere.
+
+
+
+
+honeymoon_title: Luna <br />di miele
+
+new_contribution_title:  Contribuisci
+contribution_from_label: nome e cognome
+contribution_email_label: email
+contribution_amount_label: contributo
+contribution_submit: salva
+contribution_info: |
+  Premendo &ldquo;salva&rdquo; stai solo esprimendo la tua intenzione, nessun pagamento verrà effettuato attraverso il sito. 
+  Inoltre l'entità del tuo contributo sarà mantenuta riservata. 
+  <br />
+  Grazie di cuore!
+
+error_saving_contribution: 'Sembra si sia verificato un errore, per favore riprova compilando tutti i campi'
+
+thanks: Grazie
+thanks_for: per il tuo contributo al nostro sogno hawaiiano
+thanks_info: Riceverai presto via email tutte le istruzioni necessarie.
+
+
+index_link: Torna alla prima pagina
+honeymoon_link: Torna alla Luna di miele 
+
+footer: |
+  realizzato con &hearts; nel cuore di Londra &middot;
+  la maggior parte dei disegni proviene dal fantastico 
+  <a href="http://thenounproject.com/" target ="_blank">The Noun Project</a>

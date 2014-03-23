@@ -1,0 +1,62 @@
+event_title:    Giacomo + Virginia
+event_intro:    |
+  <p>
+    We're getting married next June, and we couldn't wish for better company than yours to make this day truly memorable.
+  </p>
+  <p>
+    The ceremony will be held on Saturday, June 21st at 3 pm. Afterwards, we will have the pleasure of welcoming our guests for dinner and festivities.
+  </p>
+  <p>
+    In the coming weeks we will publish here some information that we think may be useful for you, so keep an eye on this page.
+  </p>
+
+
+
+honeymoon_intro:  |
+  <h2>An Hawaiian dream</h2>
+  <p>
+    As you know we live in London, and a traditional wedding list was not practical.
+  </p>
+  <p>
+    So we decided to ask you some help with the best holiday of our lives: the honeymoon &ndash;
+    we will fly shortly after the wedding, and we will spend two weeks under the amazing sun of Hawaii.
+  </p>
+  <p>
+    If you feel like, help us reach all of our goals: flight tickets, hotels, 
+    <a href="http://en.wikipedia.org/wiki/Lei_(garland)" target="_blank" title="nā lei on wikipedia">nā lei</a>
+    &hellip; 
+    <br />
+    We built a page for that, where you can also see how the funding goes:
+  </p>
+
+honeymoon_frontpage_link: Help us fly to Hawaii &rightarrow;
+
+honeymoon_notes:  We will not run any payment through the website, if you choose to contribute you'll be given all useful information.
+
+
+honeymoon_title: Honeymoon
+
+new_contribution_title:  Contribute
+contribution_from_label: first and last name
+contribution_email_label: email
+contribution_amount_label: amount
+contribution_submit: save
+contribution_info: |
+  Clicking &ldquo;save&rdquo; you're expressing intent, no payment is run through the website. 
+  The amount of your contribution will be kept reserved. 
+  <br />
+  Thanks a lot!
+
+error_saving_contribution: 'It seems an error occoured, please try again filling all the fields'
+
+thanks: Thanks
+thanks_for: for your contribution to our hawaiian dream
+thanks_info: soon you'll get all the information you need via email
+
+index_link: Back to front page
+honeymoon_link: Back to Honeymoon
+
+footer: |
+  made with &hearts; in the heart of London &middot; 
+  most pictograms come from the amazing 
+  <a href="http://thenounproject.com/" target ="_blank">The Noun Project</a>
