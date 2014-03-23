@@ -14,7 +14,7 @@
           %span.small> 00 
           #{' ' + @gift['amount']['currency'].to_currency_symbol}
 
-        %p.small= t('thanks_info')
+        %p= t('thanks_info')
 
     %footer
       %a{href: url('/honeymoon')}= t('honeymoon_link')
