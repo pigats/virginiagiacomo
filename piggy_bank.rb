@@ -1,13 +1,25 @@
 require 'mongo'
+require 'pdfkit'
+
+require './amount'
 
 class PiggyBank
 
   def initialize(db)
     @db = db.collection('piggy-bank')
+
   end
 
-  def deposit(from, amount)
-    @db.insert({from: from, amount: amount}) unless amount[:value_in_pounds] <= 0
+  def deposit(params)
+    name = params[:name]
+    email = params[:email]
+    amount = Amount.new(params[:amount], params[:currency])
+
+    if(name.empty? or email.empty? or amount.value <= 0) 
+      return false 
+    else 
+      @db.insert({from: {name: name, email: email}, amount: {value: amount.value, currency: amount.currency, value_in_pounds: amount.to_pound}})
+    end
   end
 
   def balance
@@ -21,5 +33,15 @@ class PiggyBank
   def find_deposit(id)
     @db.find_one({'_id' => id})
   end
+
+  def print_receipt(id)
+    deposit = find_deposit(id)
+  end
+
+  def send_receipt(id)
+
+  end
+
+
 
 end

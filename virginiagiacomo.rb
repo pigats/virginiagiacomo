@@ -8,13 +8,13 @@ require 'bson'
 require 'yaml'
 
 require './goals'
-require './amount'
 require './piggy_bank'
 require './currency_symbol'
 
 class VirginiaGiacomo < Sinatra::Base
 
   register Sinatra::AssetPipeline
+  enable :sessions
 
   configure :development do
     set :db, Mongo::Connection.new().db('virginiagiacomo')
@@ -32,6 +32,10 @@ class VirginiaGiacomo < Sinatra::Base
     set :en, YAML.load_file('./locales/en.yml')
   end
 
+
+
+
+
   helpers do
     def t(key)
       return settings.send(@locale)[key]
@@ -41,6 +45,7 @@ class VirginiaGiacomo < Sinatra::Base
   before do
     @locale = request.env['HTTP_ACCEPT_LANGUAGE'].include?('it-IT') ? 'it' : 'en'
   end
+
 
   get '/' do
     haml :index
@@ -75,26 +80,36 @@ class VirginiaGiacomo < Sinatra::Base
 
 
   # empty form
-  get '/honeymoon/gifts/new' do 
-    haml :'gifts/new'
+  get '/honeymoon/contributions/new' do 
+    @error = session[:create_gift_error] unless session[:create_gift_error].nil?
+    haml :'contributions/new'
+  end
+
+  after '/honeymoon/contributions/new' do 
+    session[:create_gift_error] = nil
   end
 
   # create gift
-  post '/honeymoon/gifts' do
-    value = params[:amount]
-    currency = params[:currency]
-
-    amount = { value_original: value, currency: currency, value_in_pounds: Amount.new(value, currency).to_pound }
+  post '/honeymoon/contributions' do    
+    save = settings.piggy_bank.deposit(params)
     
-    id = settings.piggy_bank.deposit({name: params[:name], email: params[:email]}, amount)
-    redirect '/honeymoon/gifts/' + id.to_s
+    if save.equal?(false)
+      session[:create_gift_error] = 'error_saving_contribution'
+      redirect '/honeymoon/contributions/new'
+    else
+      redirect '/honeymoon/contributions/' + save.to_s
+    end
   end
 
   # show gift
-  get '/honeymoon/gifts/:id' do 
+  get '/honeymoon/contributions/:id' do 
     @gift = settings.piggy_bank.find_deposit(BSON::ObjectId(params[:id]))
-    haml :'gifts/show'
+    haml :'contributions/show'
   end
 
+
+  get '/receipt' do
+    haml :receipt
+  end
 
 end

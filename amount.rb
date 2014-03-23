@@ -1,13 +1,17 @@
-class Amount 
+class Amount
+
+  attr_reader :value, :currency
 
   def initialize(amount, currency)
-    @amount = amount.to_i
+    @value = amount.to_i
     @currency = currency
-    @exchange_rate = { pound: 1, euro: 0.83, dollar: 0.60 }
+    @@exchange_rate = { pound: 1, euro: 0.83, dollar: 0.60 }
   end
 
+
+
   def to_pound
-    @amount * @exchange_rate[@currency.to_sym]
+    @value * @@exchange_rate[@currency.to_sym]
   end
 
 end

@@ -14,3 +14,7 @@ gem 'susy'
 # db
 gem 'mongo'
 gem 'bson_ext'
+
+# pdf jobs
+gem 'heroku-api'
+gem 'pdfkit'
