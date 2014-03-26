@@ -18,3 +18,8 @@ gem 'bson_ext'
 # pdf jobs
 gem 'heroku-api'
 gem 'pdfkit'
+
+
+group :test do 
+  gem 'rspec'
+end

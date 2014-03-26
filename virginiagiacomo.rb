@@ -7,7 +7,8 @@ require 'sinatra/asset_pipeline'
 require 'bson'
 require 'yaml'
 
-require './goals'
+require './goal'
+require './amount'
 require './piggy_bank'
 require './currency_symbol'
 
@@ -92,7 +93,8 @@ class VirginiaGiacomo < Sinatra::Base
 
   # create gift
   post '/honeymoon/contributions' do    
-    save = settings.piggy_bank.deposit(params)
+
+    save = settings.piggy_bank.deposit(params.merge!(amount: Amount.new(params[:amount], params[:currency])))
     
     if save.equal?(false)
       session[:gift_error] = 'error_saving_contribution'

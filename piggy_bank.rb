@@ -1,8 +1,6 @@
 require 'mongo'
 require 'pdfkit'
 
-require './amount'
-
 class PiggyBank
 
   def initialize(db)
@@ -13,9 +11,9 @@ class PiggyBank
   def deposit(params)
     name = params[:name]
     email = params[:email]
-    amount = Amount.new(params[:amount], params[:currency])
+    amount = params[:amount] 
 
-    if(name.empty? or email.empty? or amount.value <= 0) 
+    if(name.nil? or name.empty? or email.nil? or email.empty? or amount.nil? or amount.value <= 0) 
       return false 
     else 
       @db.insert({from: {name: name, email: email}, amount: {value: amount.value, currency: amount.currency, value_in_pounds: amount.to_pound}})

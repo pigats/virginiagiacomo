@@ -6,7 +6,7 @@ class Goal
     @db = db.collection('goals')
   end
 
-  def all()
+  def all
     goals = @db.find({}).sort({sort: 1})
   end
 
