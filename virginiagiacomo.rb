@@ -34,10 +34,6 @@ class VirginiaGiacomo < Sinatra::Base
     set :en, YAML.load_file('./locales/en.yml')
   end
 
-
-
-
-
   helpers do
     def t(key)
       return settings.send(@locale)[key]
@@ -45,7 +41,7 @@ class VirginiaGiacomo < Sinatra::Base
   end
 
   before do
-    @locale = request.env['HTTP_ACCEPT_LANGUAGE'].include?('it-IT') ? 'it' : 'en'
+    @locale = request.env['HTTP_ACCEPT_LANGUAGE'].include?('it') ? 'it' : 'en'
   end
 
 
