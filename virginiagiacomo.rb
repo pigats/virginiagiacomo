@@ -38,10 +38,6 @@ class VirginiaGiacomo < Sinatra::Base
     set :en, YAML.load_file('./locales/en.yml')
   end
 
-
-
-
-
   helpers do
     def t(key)
       return settings.send(@locale)[key]
