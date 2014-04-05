@@ -21,6 +21,10 @@ class VirginiaGiacomo < Sinatra::Base
     set :db, Mongo::Connection.new().db('virginiagiacomo')
   end
 
+  configure :test do 
+    set :db, Mongo::Connection.new().db('virginiagiacomo_test')
+  end
+
   configure :production do 
     set :db, Mongo::Connection.from_uri(ENV['MONGOLAB_URI']).db(URI.parse(ENV['MONGOLAB_URI']).path.gsub(/^\//, '')) 
   end
@@ -45,7 +49,7 @@ class VirginiaGiacomo < Sinatra::Base
   end
 
   before do
-    @locale = request.env['HTTP_ACCEPT_LANGUAGE'].include?('it-IT') ? 'it' : 'en'
+    @locale = request.env['HTTP_ACCEPT_LANGUAGE'].nil? || !request.env['HTTP_ACCEPT_LANGUAGE'].include?('it') ? 'en' : 'it'
   end
 
 

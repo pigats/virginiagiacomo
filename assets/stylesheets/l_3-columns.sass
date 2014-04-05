@@ -1,3 +1,4 @@
+@import vars
 @import compass
 @import susy
 
@@ -8,23 +9,30 @@ body:not(.full-width)
   +container
 
 .column 
-  +span-columns(4)
+  +span-columns(4 omega, 4)
   +box-sizing(border-box)
+
+  +at-breakpoint($tablet-and-desktop)
+    +span-columns(4, 12)
 
   &:last-of-type:not(:first-of-type)
     +omega
 
 .column-double 
-  +span-columns(8)
+  +span-columns(4 omega, 4)
 
+  +at-breakpoint($tablet-and-desktop)
+    +span-columns(8, 12)
 
-.column.column-center
-  +pre(4)
-  +post(4)
++at-breakpoint($tablet-and-desktop)
 
-.column-double.column-center 
-  +pre(2)
-  +post(2)
+  .column.column-center
+    +pre(4)
+    +post(4)
+
+  .column-double.column-center 
+    +pre(2)
+    +post(2)
 
 
 .column-right
@@ -36,15 +44,23 @@ body:not(.full-width)
 
 $footer_text_color: lighten(#555, 40%)
 
++at-breakpoint($mobile)
+  body.full-width .footer
+    +container
+
+  body:not(.full-width) .footer
+    +span-columns(4 omega, 4)
+
 .footer
-  +span-columns(12)
+  +at-breakpoint($tablet-and-desktop)
+    +span-columns(12 omega, 12)
+    text-align: center
+
   margin: 90px 0 18px
 
   font-size: .707em
-  text-align: center
   color: $footer_text_color
 
   a 
     color: $footer_text_color
     border-bottom-color: $footer_text_color
-  

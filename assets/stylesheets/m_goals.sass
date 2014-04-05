@@ -1,4 +1,6 @@
+@import vars
 @import compass
+@import susy
 $colours: #fb8d78, #fa8a9a, #e691bb, #c19fd3, #8faddb, #58b7d1, #33bdb8, #48bf94, #72bc6e, #9db54f, #c5a941, #e89a4c, #ff8b68
 
 
@@ -7,8 +9,9 @@ $colours: #fb8d78, #fa8a9a, #e691bb, #c19fd3, #8faddb, #58b7d1, #33bdb8, #48bf94
   padding-left: 0
 
 .goals-desc
-  position: fixed
-  padding-top: 36px
+  +at-breakpoint($tablet-and-desktop)
+    position: fixed
+    padding-top: 36px
 
 .goals-desc-title
   +text-shadow(1px 1px 0 #fff)
