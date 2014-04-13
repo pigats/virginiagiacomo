@@ -25,10 +25,17 @@ GEM
       excon (~> 0.27)
       multi_json (~> 1.8)
     hike (1.2.3)
+    mail (2.5.4)
+      mime-types (~> 1.16)
+      treetop (~> 1.4.8)
+    mime-types (1.25.1)
     mongo (1.9.2)
       bson (~> 1.9.2)
     multi_json (1.8.4)
     pdfkit (0.6.2)
+    polyglot (0.3.4)
+    pony (1.8)
+      mail (>= 2.0)
     rack (1.5.2)
     rack-protection (1.5.2)
       rack
@@ -72,6 +79,9 @@ GEM
       eventmachine (>= 1.0.0)
       rack (>= 1.0.0)
     tilt (1.4.1)
+    treetop (1.4.15)
+      polyglot
+      polyglot (>= 0.3.1)
 
 PLATFORMS
   ruby
@@ -83,6 +93,7 @@ DEPENDENCIES
   heroku-api
   mongo
   pdfkit
+  pony
   rspec
   sass
   sinatra
