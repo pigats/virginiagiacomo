@@ -19,6 +19,9 @@ gem 'bson_ext'
 gem 'heroku-api'
 gem 'pdfkit'
 
+# email 
+gem 'pony'
+
 
 group :test do 
   gem 'rspec'

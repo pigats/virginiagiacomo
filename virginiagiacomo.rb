@@ -11,6 +11,7 @@ require './goal'
 require './amount'
 require './piggy_bank'
 require './currency_symbol'
+require './email'
 
 class VirginiaGiacomo < Sinatra::Base
 
@@ -19,6 +20,7 @@ class VirginiaGiacomo < Sinatra::Base
 
   configure :development do
     set :db, Mongo::Connection.new().db('virginiagiacomo')
+    set :email, EmailDevelopment.new
   end
 
   configure :test do 
@@ -27,12 +29,14 @@ class VirginiaGiacomo < Sinatra::Base
 
   configure :production do 
     set :db, Mongo::Connection.from_uri(ENV['MONGOLAB_URI']).db(URI.parse(ENV['MONGOLAB_URI']).path.gsub(/^\//, '')) 
+    set :email, Email.new
   end
 
   configure do
     db = settings.db
+    email = settings.email
     set :goal, Goal.new(db)
-    set :piggy_bank, PiggyBank.new(db)
+    set :piggy_bank, PiggyBank.new(db, email)
     set :session_secret, ENV['SESSION_SECRET']
     set :it, YAML.load_file('./locales/it.yml')
     set :en, YAML.load_file('./locales/en.yml')

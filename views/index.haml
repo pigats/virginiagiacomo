@@ -29,7 +29,26 @@
         %p.main-honeymoon-card-link
           %a.btn{href: url('honeymoon')}= t('honeymoon_frontpage_link')
 
-        = t('honeymoon_notes')  
+        = t('honeymoon_notes') 
+
+  %section.container
+
+    %section.column
+
+    %section.column.column-double
+      %header
+        %h2
+          = t('information_title')
+
+      %article
+        = t('information')
+
+      %header
+        %h3
+          = t('location_title')
+
+      %article
+        = t('location')
 
 
 = haml :_foot
