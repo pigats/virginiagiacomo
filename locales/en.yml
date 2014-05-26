@@ -4,12 +4,11 @@ event_intro:    |
     We're getting married next June, and we couldn't wish for better company than yours to make this day truly memorable.
   </p>
   <p>
-    The ceremony will be held on Saturday, June 21st at 3 pm. Afterwards, we will have the pleasure of welcoming our guests for dinner and festivities.
+    The ceremony will be held on Saturday, June 21st at 3 pm.
   </p>
   <p>
-    In the coming weeks we will publish here some information that we think may be useful for you, so keep an eye on this page.
+    Afterwards, we will have the pleasure of welcoming our guests for dinner and festivities.
   </p>
-
 
 
 honeymoon_intro:  |
@@ -65,6 +64,15 @@ footer: |
 information_title: Info
 information: |
   <p>
+    The ceremony will take place at the Church of San Ulderico in Tretto in Schio (VI).
+  </p>
+  <p>
+    The reception will take place at the &ldquo;agriturismo Il Maggiociondolo&rdquo;, Contrà Proveste 1, S. Rocco di Tretto, Schio.
+  </p>
+
+location_title: Location
+location: |
+  <p>
     The venue of the wedding is 700 meters above the sea level: although it will be the first 
     day of summer, in the evening might be a bit cold.
     <br />
@@ -74,14 +82,6 @@ information: |
     If you need a place to sleep, please contact us as soon as possible.
   </p>
 
-location_title: Location
-location: |
-  <p>
-    The ceremony will take place at the Church of San Ulderico in Tretto in Schio (VI).
-  </p>
-  <p>
-    The reception will take place at the &ldquo;agriturismo Il Maggiociondolo&rdquo;, Contrà Proveste 1, S. Rocco di Tretto, Schio.
-  </p>
   <h3>Directions to the Church</h3>
   <p>
     Take the highway A31 (Valdastico) and exit at Piovene Rocchette. 
