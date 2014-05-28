@@ -5,12 +5,11 @@ event_intro: |
     una compagnia migliore della vostra.
   </p>
   <p>
-    La cerimonia si terrà <b>Sabato 21 Giugno alle 15</b>. A seguire, avremo il piacere di accogliere i nostri ospiti per 
-    la cena e i festeggiamenti.
+    La cerimonia si terrà <b>Sabato 21 Giugno alle 15</b>. 
   </p>
   <p>
-    Nelle prossime settimane pubblicheremo qui alcune informazioni che pensiamo possano esservi utili, quindi tenete d'occhio questa
-    pagina.
+    A seguire, avremo il piacere di accogliere i nostri ospiti per 
+    la cena e i festeggiamenti.
   </p>
 
 honeymoon_intro: |
@@ -67,6 +66,15 @@ footer: |
 information_title: Informazioni
 information: |
   <p>
+    La cerimonia avrà luogo presso la Chiesa di San Ulderico, al Tretto di Schio (VI).
+  </p>
+  <p>
+    Il ricevimento ed i festeggiamenti si svolgeranno presso l'agriturismo Il Maggiociondolo, Contrà Proveste 1, S. Rocco di Tretto, Schio.
+  </p>
+
+location_title: Location
+location: |
+  <p>
     La località dove si svolgerà il matrimonio è a circa 700 metri sul livello del mare: 
     nonostante sarà il primo giorno d'estate, la sera potrebbe essere un po' freddo. 
     <br />
@@ -75,15 +83,7 @@ information: |
   <p>
     Se avete bisogno di un posto dove dormire, vi preghiamo di contattarci al più presto.
   </p>
-
-location_title: Location
-location: |
-  <p>
-    La cerimonia avrà luogo presso la Chiesa di San Ulderico, al Tretto di Schio (VI).
-  </p>
-  <p>
-    Il ricevimento ed i festeggiamenti si svolgeranno presso l'agriturismo Il Maggiociondolo, Contrà Proveste 1, S. Rocco di Tretto, Schio.
-  </p>
+  
   <h3>Come raggiungere la Chiesa</h3>
   <p>
     Prendere l'autostrada A31 (Valdastico) ed uscire a Piovene Rocchette. 
