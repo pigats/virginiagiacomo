@@ -9,3 +9,6 @@ Thumbs.db
 .sass-cache
 
 db
+
+phantomjs-development
+pdfs/*
