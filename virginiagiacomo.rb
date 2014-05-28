@@ -37,7 +37,7 @@ class VirginiaGiacomo < Sinatra::Base
     email = settings.email
     set :goal, Goal.new(db)
     set :piggy_bank, PiggyBank.new(db, email)
-    set :session_secret, ENV['SESSION_SECRET']
+    set :session_secret, ENV['SESSION_SECRET'] || 'developmentsupersecret'
     set :it, YAML.load_file('./locales/it.yml')
     set :en, YAML.load_file('./locales/en.yml')
   end
@@ -114,9 +114,10 @@ class VirginiaGiacomo < Sinatra::Base
     haml :'contributions/show'
   end
 
-
-  get '/receipt' do
-    haml :receipt
+  # show gift receipt
+  get '/honeymoon/contributions/:id/receipt' do
+    @gift = settings.piggy_bank.find_deposit(BSON::ObjectId(params[:id]))
+    haml :'contributions/receipt'
   end
 
 end

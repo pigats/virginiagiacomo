@@ -1,6 +1,7 @@
 require 'mongo'
 require 'pdfkit'
 require './email'
+require './receipt'
 
 class PiggyBank
 
@@ -35,9 +36,24 @@ class PiggyBank
     @db.find_one({'_id' => id})
   end
 
+  def all_deposits 
+    @db.find({})
+  end
+
+  def has_receipt_been_sent_for_deposit?(id)
+    !find_deposit(id)['receipt_sent_at'].nil?
+  end
+
+  def set_receipt_sent_for_deposit(id) 
+    @db.update({'_id' => id}, {'$set' => {'receipt_sent_at' => Time.now }})
+  end
+
+
+
   private
     def send_notifications(name, email, amount)
-      send_email_to_us(name, email, amount)
+      # send_email_to_us(name, email, amount)
+      # send_receipt(name, email, amount)
     end
 
     def send_email_to_us(name, email, amount)
@@ -46,7 +62,8 @@ class PiggyBank
     end
 
     def send_receipt(name, email, amount)
-
+      Receipt.new(name, email, amount).print
+      return 
     end
 
 

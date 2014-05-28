@@ -106,8 +106,8 @@ DEPENDENCIES
   heroku-api
   mongo
   pdfkit
-  rack-test
   pony
+  rack-test
   rspec
   sass
   sinatra

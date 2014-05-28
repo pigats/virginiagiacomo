@@ -1,4 +1,7 @@
-require 'sinatra/asset_pipeline/task.rb'
-require './virginiagiacomo.rb'
+Dir.glob('lib/*.rake').each { |r| import r }
+
+require 'sinatra/asset_pipeline/task'
+require './virginiagiacomo'
 
 Sinatra::AssetPipeline::Task.define! VirginiaGiacomo
+

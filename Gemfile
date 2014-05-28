@@ -15,9 +15,11 @@ gem 'susy'
 gem 'mongo'
 gem 'bson_ext'
 
-# pdf jobs
-gem 'heroku-api'
-gem 'pdfkit'
+group :production do
+  # pdf jobs
+  gem 'heroku-api'
+  gem 'pdfkit'
+end
 
 # email 
 gem 'pony'
