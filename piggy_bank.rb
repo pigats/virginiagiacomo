@@ -63,7 +63,7 @@ class PiggyBank
   private
     def send_notifications(name, email, amount)
       send_email_to_us(name, email, amount)
-      send_receipt(name, email, amount)
+      #send_receipt(name, email, amount)
     end
 
     def send_email_to_us(name, email, amount)
