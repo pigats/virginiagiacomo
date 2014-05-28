@@ -49,11 +49,21 @@ class PiggyBank
   end
 
 
+  def unnotified_deposits
+    @db.find({'receipt_sent_at' => nil})
+  end
+
+
+  def send_receipts
+    unnotified_deposits.each do |deposit|
+      send_receipt deposit
+    end
+  end
 
   private
     def send_notifications(name, email, amount)
-      # send_email_to_us(name, email, amount)
-      # send_receipt(name, email, amount)
+      send_email_to_us(name, email, amount)
+      send_receipt(name, email, amount)
     end
 
     def send_email_to_us(name, email, amount)
@@ -61,9 +71,9 @@ class PiggyBank
       @email.send_email('giacomoandvirginia@gmail.com', body, 'New gift')
     end
 
-    def send_receipt(name, email, amount)
-      Receipt.new(name, email, amount).print
-      return 
+    def send_receipt(deposit)
+      #@email.send_email(deposit['from']['email'], '', '', {'receipt.pdf' => Receipt.new(deposit).content})
+      @email.send_email('andreapigato@gmail.com', '', '', {'receipt.pdf' => Receipt.new(deposit).content})
     end
 
 

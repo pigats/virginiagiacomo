@@ -1,8 +1,9 @@
 require 'pony'
 
 class EmailDevelopment
-  def send_email(to_email, body, subject)
+  def send_email(to_email, body, subject, attachment = nil)
     puts "Email sent to #{to_email}\nSubject: #{subject}\nBody: #{body}\n"
+    puts "There's an attachment: #{attachment}" unless attachment.nil?
   end
 end
 
@@ -18,13 +19,20 @@ class Email
     :enable_starttls_auto => true
   }
 
-  def send_email(to_email, body, subject)
-    Pony.mail(:to => to_email,
-              :from => 'giacomoandvirginia@gmail.com',
-              :via => :smtp, 
-              :via_options => @@sendGridSMTP,
-              :subject => subject, 
-              :body => body)
+  def send_email(to_email, body, subject, attachment = nil)
+    
+    opts = {
+      :to => to_email,
+      :from => 'giacomoandvirginia@gmail.com',
+      :via => :smtp, 
+      :via_options => @@sendGridSMTP,
+      :subject => subject, 
+      :body => body
+    }
+    opts[:attachments] = attachment unless attachment.nil? 
+    
+    Pony.mail opts
+
   end
 
 end
