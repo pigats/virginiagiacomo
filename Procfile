@@ -1,2 +1,1 @@
-web:      shotgun -p 3000
-worker:   rake 
+web:      bundle exec thin start -p $PORT -e $RACK_ENV
