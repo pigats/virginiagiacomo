@@ -1,11 +1,11 @@
-require 'haml'
-require './amount'
-
 class Receipt
 
   def initialize deposit
     @deposit_id = deposit['_id']
-    @path = "./tmp/#{@deposit_id}/receipt.pdf"
+    path = "./tmp/#{@deposit_id}"
+    FileUtils.mkdir(path)
+    @path = File.join(path, 'receipt.pdf')
+    
     print
   end
 

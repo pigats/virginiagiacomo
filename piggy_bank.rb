@@ -19,7 +19,7 @@ class PiggyBank
       return false 
     else 
       id = @db.insert({from: {name: name, email: email}, amount: {value: amount.value, currency: amount.currency, value_in_pounds: amount.to_pound}})
-      send_notifications(name, email, amount)
+      send_email_to_us(name, email, amount)
       return id
     end
   end
@@ -61,10 +61,6 @@ class PiggyBank
   end
 
   private
-    def send_notifications(name, email, amount)
-      send_email_to_us(name, email, amount)
-      #send_receipt(name, email, amount)
-    end
 
     def send_email_to_us(name, email, amount)
       body = "Hello!\n\nYour friend #{name} (#{email}), gave you #{amount.value} #{amount.currency} (£ #{amount.to_pound})."
