@@ -51,8 +51,36 @@ error_saving_contribution: 'Sembra si sia verificato un errore, per favore ripro
 
 thanks: Grazie
 thanks_for: per il tuo contributo al nostro sogno hawaiiano
-thanks_info: Riceverai presto via email tutte le istruzioni necessarie.
-
+thanks_info: |
+  I metodi più semplici per farci arrivare il tuo contributo sono:
+  <ul>
+    <li>
+      la classica "busta"
+    </li>
+    <li>
+      un trasferimento da un conto inglese:<br />
+      Sort Code: 20-96-55<br />
+      Account number: 13312496
+    </li>
+    <li>
+      un bonifico sul conto inglese:<br />
+      IBAN: GB06 BARC 2096 5513 3124 96<br />
+      SWIFTBIC: BARCGB22
+    </li>
+    <li>
+      un bonifico sul conto italiano:<br />
+      Giacomo Saccardo<br />
+      IBAN: IT 10 G 02008 60753 000011126422
+    </li>
+  </ul>
+  <br />
+  <p>
+    Ti ringraziamo di cuore, non vediamo l'ora di vederti al nostro matrimonio!<br />
+    Ti invieremo presto via email queste informazioni.
+  </p>
+  <p>
+    Giacomo e Virginia
+  </p>
 
 index_link: Torna alla prima pagina
 honeymoon_link: Torna alla Luna di miele 

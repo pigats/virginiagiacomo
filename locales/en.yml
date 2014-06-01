@@ -51,7 +51,36 @@ error_saving_contribution: 'It seems an error occoured, please try again filling
 
 thanks: Thanks
 thanks_for: for your contribution to our hawaiian dream
-thanks_info: soon you'll get all the information you need via email
+thanks_info: |
+  The easiest way to get us your contribution are:
+  <ul>
+    <li>
+      the classic "envelope"
+    </li>
+    <li>
+      a transfer to:<br />
+      Sort Code: 20-96-55<br />
+      Account number: 13312496
+    </li>
+    <li>
+      an international transfer to:<br />
+      IBAN: GB06 BARC 2096 5513 3124 96<br />
+      SWIFTBIC: BARCGB22
+    </li>
+    <li>
+      a transfer to our italian account:<br />
+      Giacomo Saccardo<br />
+      IBAN: IT 10 G 02008 60753 000011126422
+    </li>
+  </ul>
+  <br />
+  <p>
+    Thank you very much, we're looking forward to see you at our wedding!<br />
+    Soon you'll an email with this information.
+  </p>
+  <p>
+    Giacomo and Virginia
+  </p>
 
 index_link: Back to front page
 honeymoon_link: Back to Honeymoon
