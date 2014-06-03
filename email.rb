@@ -1,10 +1,16 @@
 require 'pony'
 
 class EmailDevelopment
-  def send_email(to_email, body, subject, attachment = nil)
+ 
+  def send_email(to_email, subject, body, attachment = nil)
+
     puts "Email sent to #{to_email}\nSubject: #{subject}\nBody: #{body}\n"
-    puts "There's an attachment: #{attachment}" unless attachment.nil?
+    puts "There's an attachment" unless attachment.nil?
+    
+    true
+
   end
+
 end
 
 class Email
@@ -19,7 +25,7 @@ class Email
     :enable_starttls_auto => true
   }
 
-  def send_email(to_email, body, subject, attachment = nil)
+  def send_email(to_email, subject, body, attachment = nil)
     
     opts = {
       :to => to_email,
@@ -32,6 +38,8 @@ class Email
     opts[:attachments] = attachment unless attachment.nil? 
     
     Pony.mail opts
+
+    true
 
   end
 

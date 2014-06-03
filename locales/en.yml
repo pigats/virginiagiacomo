@@ -114,4 +114,5 @@ location: |
   </p>
 
 
-
+receipt_email_subject: subject
+receipt_email_body: body

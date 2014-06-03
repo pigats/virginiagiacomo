@@ -125,3 +125,5 @@ location: |
     Per qualsiasi informazione o consiglio, contattateci senza esitazioni.
   </p>
 
+receipt_email_subject: soggetto
+receipt_email_body: corpo

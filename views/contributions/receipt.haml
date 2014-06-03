@@ -1,8 +1,11 @@
 = haml :_head
 
 %body
+  
+  -# dear phantomjs, you're kind of broken: first we had to use a custom build to get webfonts, and then we found out that version had broken custom headers. but we still <3 you
+  - @locale = @gift['amount']['currency'].eql?('euro') ? 'it' : 'en'
 
-
+  
   %section.column.column-center.alone
     %header
       %h1
@@ -19,9 +22,5 @@
 
         %p= t('thanks_info')
 
-    %footer
-      %a{href: url('/honeymoon')}= t('honeymoon_link')
-      %br/
-      %a{href: url('/')}= t('index_link')
 
 = haml :_foot

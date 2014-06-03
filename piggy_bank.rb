@@ -2,6 +2,9 @@ require 'mongo'
 require 'pdfkit'
 require './email'
 require './receipt'
+require './virginiagiacomo'
+
+
 
 class PiggyBank
 
@@ -44,15 +47,10 @@ class PiggyBank
     !find_deposit(id)['receipt_sent_at'].nil?
   end
 
-  def set_receipt_sent_for_deposit(id) 
-    @db.update({'_id' => id}, {'$set' => {'receipt_sent_at' => Time.now }})
-  end
-
 
   def unnotified_deposits
     @db.find({'receipt_sent_at' => nil})
   end
-
 
   def send_receipts
     unnotified_deposits.each do |deposit|
@@ -64,12 +62,23 @@ class PiggyBank
 
     def send_email_to_us(name, email, amount)
       body = "Hello!\n\nYour friend #{name} (#{email}), gave you #{amount.value} #{amount.currency} (£ #{amount.to_pound})."
-      @email.send_email('giacomoandvirginia@gmail.com', body, 'New gift')
+      @email.send_email('giacomoandvirginia@gmail.com', 'New gift', body)
     end
 
     def send_receipt(deposit)
-      #@email.send_email(deposit['from']['email'], '', '', {'receipt.pdf' => Receipt.new(deposit).content})
-      @email.send_email('andreapigato@gmail.com', '', '', {'receipt.pdf' => Receipt.new(deposit).content})
+      
+      locale = deposit['amount']['currency'].eql?('euro') ? 'it' : 'en'
+      subject = VirginiaGiacomo.settings.send(locale)['receipt_email_subject']
+      body = VirginiaGiacomo.settings.send(locale)['receipt_email_body']
+
+      if @email.send_email(deposit['from']['email'], subject, body, {'receipt.pdf' => Receipt.new(deposit, locale).content})
+        mark_deposit_as_sent deposit    
+      end
+    end
+
+    def mark_deposit_as_sent(deposit) 
+      id = deposit['_id']
+      @db.update({'_id' => id}, {'$set' => {'receipt_sent_at' => Time.now }})
     end
 
 
