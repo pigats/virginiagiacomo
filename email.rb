@@ -25,16 +25,27 @@ class Email
     :enable_starttls_auto => true
   }
 
-  def send_email(to_email, subject, body, attachment = nil)
+  @@gmailSMTP = {
+    :address              => 'smtp.gmail.com',
+    :port                 => '587',
+    :enable_starttls_auto => true,
+    :user_name            => ENV['GMAIL_USERNAME'],
+    :password             => ENV['GMAIL_PASSWORD'],
+    :authentication       => :plain, # :plain, :login, :cram_md5, no auth by default
+    :domain               => "localhost.localdomain" # the HELO domain provided by the client to the server
+  }
+
+  def send_email(to_email, subject, body, attachment = nil) 
     
     opts = {
       :to => to_email,
       :from => 'giacomoandvirginia@gmail.com',
       :via => :smtp, 
-      :via_options => @@sendGridSMTP,
+      :via_options => @@gmailSMTP,
       :subject => subject, 
-      :body => body
+      :html_body => body
     }
+
     opts[:attachments] = attachment unless attachment.nil? 
     
     Pony.mail opts
@@ -44,3 +55,5 @@ class Email
   end
 
 end
+
+

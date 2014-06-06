@@ -79,7 +79,7 @@ thanks_info: |
     Ti invieremo presto via email queste informazioni.
   </p>
   <p>
-    Giacomo e Virginia
+    <i>Giacomo e Virginia</i>
   </p>
 
 index_link: Torna alla prima pagina
@@ -153,5 +153,40 @@ location: |
     Per qualsiasi informazione o consiglio, contattateci senza esitazioni.
   </p>
 
-receipt_email_subject: soggetto
-receipt_email_body: corpo
+receipt_email_subject: Grazie da Giacomo e Virginia
+receipt_email_opening: Grazie
+receipt_email_body: |
+  <h2>per il tuo contributo al nostro sogno hawaiano!</h2>
+
+  <p>
+  I metodi più semplici per farci arrivare il tuo contributo sono:
+  <ul>
+    <li>
+      la classica "busta"
+    </li>
+    <li>
+      un trasferimento da un conto inglese:<br />
+      Sort Code: 20-96-55<br />
+      Account number: 13312496
+    </li>
+    <li>
+      un bonifico sul conto inglese:<br />
+      IBAN: GB06 BARC 2096 5513 3124 96<br />
+      SWIFTBIC: BARCGB22
+    </li>
+    <li>
+      un bonifico sul conto italiano:<br />
+      Giacomo Saccardo<br />
+      IBAN: IT 10 G 02008 60753 000011126422
+    </li>
+  </ul>
+  <p>
+    Ti ringraziamo di cuore, non vediamo l'ora di vederti al nostro matrimonio!
+  </p>
+  <p>
+    <a href="http://www.giacomoandvirginia.com">www.giacomoandvirginia.com</a>
+  </p>
+
+receipt_title: Contributo
+receipt_text: per il sogno hawaiiano di Giacomo e Virginia
+receipt_footer: Tantissimi &hearts; da Giacomo e Virginia &ndash; http://www.giacomoandvirginia.com

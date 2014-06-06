@@ -10,5 +10,8 @@ Thumbs.db
 
 db
 
-phantomjs-*
-pdfs
+bin/*
+public/*
+pdfs/
+
+.env

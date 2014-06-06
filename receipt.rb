@@ -4,14 +4,14 @@ class Receipt
     id = deposit['_id']
 
     @url = "http://localhost:3000/honeymoon/contributions/#{id}/receipt"
-    @path = "./pdfs/#{id}/receipt.pdf"
+    @path = "./pdfs/#{id}/thanks.pdf"
     @locale = locale
     
     print
   end
 
   def print
-    `./bin/phantomjs-#{ENV['RACK_ENV']} ./lib/print.js #{@url} #{@path} #{@locale}`
+    `./bin/phantomjs ./lib/print.js #{@url} #{@path} #{@locale}`
   end
 
   def content

@@ -1,26 +1,23 @@
 = haml :_head
 
-%body
+%body.receipt
   
   -# dear phantomjs, you're kind of broken: first we had to use a custom build to get webfonts, and then we found out that version had broken custom headers. but we still <3 you
   - @locale = @gift['amount']['currency'].eql?('euro') ? 'it' : 'en'
 
-  
-  %section.column.column-center.alone
-    %header
-      %h1
-        = t('thanks')
-        &ndash; receipt
-        
-      %article 
-        %p= t('thanks_for')
+  %section.row
+    .row-container
+      .column
+        %img.hawaiian-flower{src: image_path('hawaiian_flower_black.png')}
 
+      .column.column-double     
+        %h1= t('receipt_title')
+      
         %h3 
           #{@gift['amount']['value']},
           %span.small> 00 
           #{' ' + @gift['amount']['currency'].to_currency_symbol}
+          = t('receipt_text')
 
-        %p= t('thanks_info')
-
-
-= haml :_foot
+  %footer.footer
+    = t('receipt_footer')

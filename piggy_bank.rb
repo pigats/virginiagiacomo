@@ -54,7 +54,7 @@ class PiggyBank
 
   def send_receipts
     unnotified_deposits.each do |deposit|
-      send_receipt deposit
+      send_receipt deposit 
     end
   end
 
@@ -68,11 +68,12 @@ class PiggyBank
     def send_receipt(deposit)
       
       locale = deposit['amount']['currency'].eql?('euro') ? 'it' : 'en'
-      subject = VirginiaGiacomo.settings.send(locale)['receipt_email_subject']
-      body = VirginiaGiacomo.settings.send(locale)['receipt_email_body']
-
-      if @email.send_email(deposit['from']['email'], subject, body, {'receipt.pdf' => Receipt.new(deposit, locale).content})
-        mark_deposit_as_sent deposit    
+      t = VirginiaGiacomo.settings.send(locale)
+      subject = t['receipt_email_subject']
+      body = '<h1>' + t['receipt_email_opening'] + ' ' + deposit['from']['name'] + '</h1>' + t['receipt_email_body']
+  
+      if @email.send_email(deposit['from']['email'], subject, body, {'thanks.pdf' => Receipt.new(deposit, locale).content})
+        mark_deposit_as_sent deposit
       end
     end
 
